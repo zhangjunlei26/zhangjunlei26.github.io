@@ -1,2 +1,1 @@
-# zhangjunlei26.github.io
-我的技术博客
+# 我的收藏夹
