@@ -1,0 +1,308 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage{fancyhdr}           % For header and footer
+\usepackage{multicol}           % Allows multicols in tables
+\usepackage{tabularx}           % Intelligent column widths
+\usepackage{tabulary}           % Used in header and footer
+\usepackage{hhline}             % Border under tables
+\usepackage{graphicx}           % For images
+\usepackage{xcolor}             % For hex colours
+%\usepackage[utf8x]{inputenc}    % For unicode character support
+\usepackage[T1]{fontenc}        % Without this we get weird character replacements
+\usepackage{colortbl}           % For coloured tables
+\usepackage{setspace}           % For line height
+\usepackage{lastpage}           % Needed for total page number
+\usepackage{seqsplit}           % Splits long words.
+%\usepackage{opensans}          % Can't make this work so far. Shame. Would be lovely.
+\usepackage[normalem]{ulem}     % For underlining links
+% Most of the following are not required for the majority
+% of cheat sheets but are needed for some symbol support.
+\usepackage{amsmath}            % Symbols
+\usepackage{MnSymbol}           % Symbols
+\usepackage{wasysym}            % Symbols
+%\usepackage[english,german,french,spanish,italian]{babel}              % Languages
+
+% Document Info
+\author{shribee (shribee)}
+\pdfinfo{
+  /Title (git.pdf)
+  /Creator (Cheatography)
+  /Author (shribee (shribee))
+  /Subject (Git Cheat Sheet)
+}
+
+% Lengths and widths
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{-1cm}
+\addtolength{\hoffset}{-3cm}
+\addtolength{\voffset}{-2cm}
+\setlength{\tabcolsep}{0.2cm} % Space between columns
+\setlength{\headsep}{-12pt} % Reduce space between header and content
+\setlength{\headheight}{85pt} % If less, LaTeX automatically increases it
+\renewcommand{\footrulewidth}{0pt} % Remove footer line
+\renewcommand{\headrulewidth}{0pt} % Remove header line
+\renewcommand{\seqinsert}{\ifmmode\allowbreak\else\-\fi} % Hyphens in seqsplit
+% This two commands together give roughly
+% the right line height in the tables
+\renewcommand{\arraystretch}{1.3}
+\onehalfspacing
+
+% Commands
+\newcommand{\SetRowColor}[1]{\noalign{\gdef\RowColorName{#1}}\rowcolor{\RowColorName}} % Shortcut for row colour
+\newcommand{\mymulticolumn}[3]{\multicolumn{#1}{>{\columncolor{\RowColorName}}#2}{#3}} % For coloured multi-cols
+\newcolumntype{x}[1]{>{\raggedright}p{#1}} % New column types for ragged-right paragraph columns
+\newcommand{\tn}{\tabularnewline} % Required as custom column type in use
+
+% Font and Colours
+\definecolor{HeadBackground}{HTML}{333333}
+\definecolor{FootBackground}{HTML}{666666}
+\definecolor{TextColor}{HTML}{333333}
+\definecolor{DarkBackground}{HTML}{850DA3}
+\definecolor{LightBackground}{HTML}{F7EFF9}
+\renewcommand{\familydefault}{\sfdefault}
+\color{TextColor}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhead{} % Set header to blank
+\fancyfoot{} % Set footer to blank
+\fancyhead[L]{
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{C}
+    \SetRowColor{DarkBackground}
+    \vspace{-7pt}
+    {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\noindent
+        \hspace*{-6pt}\includegraphics[width=5.8cm]{/web/www.cheatography.com/public/images/cheatography_logo.pdf}}
+    }
+\end{tabulary}
+\columnbreak
+\begin{tabulary}{11cm}{L}
+    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{Git Cheat Sheet}}}} \\
+    \normalsize{by \textcolor{DarkBackground}{shribee (shribee)} via \textcolor{DarkBackground}{\uline{cheatography.com/79125/cs/21438/}}}
+\end{tabulary}
+\end{multicols}}
+
+\fancyfoot[L]{ \footnotesize
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{LL}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
+  \vspace{-2pt}shribee (shribee) \\
+  \uline{cheatography.com/shribee} \\
+  \end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
+   \vspace{-2pt}Published 17th February, 2020.\\
+   Updated 26th June, 2020.\\
+   Page {\thepage} of \pageref{LastPage}.
+\end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
+  \SetRowColor{white}
+  \vspace{-5pt}
+  %\includegraphics[width=48px,height=48px]{dave.jpeg}
+  Measure your website readability!\\
+  www.readability-score.com
+\end{tabulary}
+\end{multicols}}
+
+
+
+
+\begin{document}
+\raggedright
+\raggedcolumns
+
+% Set font size to small. Switch to any value
+% from this page to resize cheat sheet text:
+% www.emerson.emory.edu/services/latex/latex_169.html
+\footnotesize % Small font.
+
+\begin{multicols*}{2}
+
+\begin{tabularx}{8.4cm}{x{4 cm} x{4 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Initialize}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+git init & Initialize repository \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+git remote add \textless{}origin/alternate name\textgreater{} \textless{}repo url\textgreater{} & Link local repo with \textless{}repo URL\textgreater{} \tn 
+% Row Count 5 (+ 3)
+% Row 2
+\SetRowColor{LightBackground}
+git push -u origin master & Push committed changes (-u and track branch with remote) \tn 
+% Row Count 8 (+ 3)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{x{4 cm} x{4 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Commit}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+git add . & Adds all modified and new (untracked) files in the current directory and all subdirectories to the staging area \tn 
+% Row Count 6 (+ 6)
+% Row 1
+\SetRowColor{white}
+git commit -m \textless{}commit message\textgreater{} & Locally commit \tn 
+% Row Count 8 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+git checkout . & Revert changes to local copy \tn 
+% Row Count 10 (+ 2)
+% Row 3
+\SetRowColor{white}
+git reset & Revert changes made to the index (i.e., that you have added). {\bf{Warning this will reset all of your unpushed commits to master!}} \tn 
+% Row Count 17 (+ 7)
+% Row 4
+\SetRowColor{LightBackground}
+git revert \textless{}commit 1\textgreater{} \textless{}commit 2\textgreater{} & Revert a change that you have committed \tn 
+% Row Count 19 (+ 2)
+% Row 5
+\SetRowColor{white}
+git clean -f & Remove untracked files (e.g., new files, generated files) \tn 
+% Row Count 22 (+ 3)
+% Row 6
+\SetRowColor{LightBackground}
+git clean -fd & Remove untracked directories \tn 
+% Row Count 24 (+ 2)
+% Row 7
+\SetRowColor{white}
+git-stash & Stash the changes away in a working directory \tn 
+% Row Count 27 (+ 3)
+% Row 8
+\SetRowColor{LightBackground}
+git diff \textless{}branch 1\textgreater{} \textless{}branch 2\textgreater{} & Compare two branches \tn 
+% Row Count 29 (+ 2)
+% Row 9
+\SetRowColor{white}
+git diff \textless{}branch 1\textgreater{} \textless{}branch 2\textgreater{} -{}-name-only & Compare two branches, file names only \tn 
+% Row Count 32 (+ 3)
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\vfill
+\columnbreak
+\begin{tabularx}{8.4cm}{x{4 cm} x{4 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Commit (cont)}}  \tn
+% Row 10
+\SetRowColor{LightBackground}
+git diff \textless{}branch\textgreater{} & Compare \textless{}branch\textgreater{} with current branch \tn 
+% Row Count 2 (+ 2)
+% Row 11
+\SetRowColor{white}
+git rm \textless{}file\textgreater{} -{}-cached & Remove file from remote, while retaining local copy \tn 
+% Row Count 5 (+ 3)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{x{4 cm} x{4 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Branching, Merging}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+git checkout -b \textless{}branch\textgreater{} master & Create \textless{}branch\textgreater{} from master \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+git push -u origin \textless{}branch\textgreater{} & Push \textless{}branch\textgreater{} \tn 
+% Row Count 4 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+git merge \textless{}branch\textgreater{} & Merge \textless{}branch\textgreater{} into current branch \tn 
+% Row Count 6 (+ 2)
+% Row 3
+\SetRowColor{white}
+git branch -d \textless{}branch\textgreater{} & Delete local branch if it is merged, if not -D to force delete \tn 
+% Row Count 10 (+ 4)
+% Row 4
+\SetRowColor{LightBackground}
+git push \textless{}remote\_name\textgreater{} -{}-delete \textless{}branch\textgreater{} & Delete remote branch \tn 
+% Row Count 12 (+ 2)
+% Row 5
+\SetRowColor{white}
+git branch \textless{}branch\textgreater{} & Create branch \textless{}branch\textgreater{} \tn 
+% Row Count 14 (+ 2)
+% Row 6
+\SetRowColor{LightBackground}
+git branch {[}-a{]} & List branches, -a including remote, * indicates current branch \tn 
+% Row Count 18 (+ 4)
+% Row 7
+\SetRowColor{white}
+git rebase \textless{}branch\textgreater{} & Rebase from \textless{}branch\textgreater{} into current branch, i.e. take \textless{}branch\textgreater{} and then apply current branch's commits onto it to create linear history \tn 
+% Row Count 25 (+ 7)
+% Row 8
+\SetRowColor{LightBackground}
+git branch -m \textless{}old\textgreater{} \textless{}new\textgreater{}\{\{nl\}\}git push origin :\textless{}old\textgreater{} \textless{}new\textgreater{}\{\{nl\}\}git push origin -u \textless{}new\textgreater{} & 1. Rename your local branch\{\{nl\}\}2. Delete the \textless{}old\textgreater{} remote branch and push the \textless{}new\textgreater{} local branch\{\{nl\}\}3. Reset the upstream branch for the \textless{}new\textgreater{} local branch \tn 
+% Row Count 33 (+ 8)
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\vfill
+\columnbreak
+\begin{tabularx}{8.4cm}{x{4 cm} x{4 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Branching, Merging (cont)}}  \tn
+% Row 9
+\SetRowColor{LightBackground}
+git diff -{}-name-status \textless{}b1\textgreater{}..\textless{}b2\textgreater{} & Show diffs (filenames only) between two branches \tn 
+% Row Count 3 (+ 3)
+% Row 10
+\SetRowColor{white}
+git diff -{}-name-status master & Show diffs (filenames only) between master and current branch \tn 
+% Row Count 7 (+ 4)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{x{4 cm} x{4 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Admin, Trouble-shooting}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+git log {[}-p{]} {[}-n{]} & Shows commit history, last n, -p differences \tn 
+% Row Count 3 (+ 3)
+% Row 1
+\SetRowColor{white}
+git remote set-url origin \textless{}new url\textgreater{} & Change remote url \tn 
+% Row Count 5 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+git remote -v & List remote information \tn 
+% Row Count 7 (+ 2)
+% Row 3
+\SetRowColor{white}
+git config -{}-global credential.helper cache\{\{nl\}\}git config -{}-global credential.helper 'cache -{}-timeout=3600' & Set git to use the credential memory cache \{\{nl\}\}set the cache to timeout after 1 hour (setting is in seconds) \tn 
+% Row Count 13 (+ 6)
+% Row 4
+\SetRowColor{LightBackground}
+git config {[}-{}-global{]} user.name "FIRST\_NAME LAST\_NAME" & Set (global/repo) username for commits \tn 
+% Row Count 16 (+ 3)
+% Row 5
+\SetRowColor{white}
+git config {[}-{}-global{]} user.email \seqsplit{"MY\_NAME@example.com"} & Set (global/repo) email for commits \tn 
+% Row Count 19 (+ 3)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+
+% That's all folks
+\end{multicols*}
+
+\end{document}

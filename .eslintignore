@@ -1,0 +1,5 @@
+# Ignore All config files.
+
+# Ignore all external files.
+
+node_modules/**
