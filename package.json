@@ -31,6 +31,7 @@
     "hexo-wordcount": "^6.0.1"
   },
   "devDependencies": {
-    "eslint-config-vue-prettier-airbnb-ro": "^0.0.3"
+    "eslint-config-vue-prettier-airbnb-ro": "^0.0.3",
+    "hexo-deployer-git": "^2.1.0"
   }
 }
