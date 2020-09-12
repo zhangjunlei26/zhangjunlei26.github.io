@@ -1,0 +1,19 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev blog"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangjunlei26/zhangjunlei26.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhangjunlei26/zhangjunlei26.github.io/issues"
+  },
+  "homepage": "https://github.com/zhangjunlei26/zhangjunlei26.github.io#readme"
+}
