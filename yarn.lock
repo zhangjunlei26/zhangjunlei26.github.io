@@ -1895,13 +1895,6 @@ he@^1.2.0:
   resolved "https://registry.npm.taobao.org/he/download/he-1.2.0.tgz?cache=0&sync_timestamp=1589682765156&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhe%2Fdownload%2Fhe-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha1-hK5l+n6vsWX922FWauFLrwVmTw8=
 
-hexo-baidu-url-submit@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.npm.taobao.org/hexo-baidu-url-submit/download/hexo-baidu-url-submit-0.0.6.tgz#2e8df814ceed3420e56cc27fd503f6023256dc6d"
-  integrity sha1-Lo34FM7tNCDlbMJ/1QP2AjJW3G0=
-  dependencies:
-    xmlhttprequest "^1.8.0"
-
 hexo-bunyan@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/hexo-bunyan/download/hexo-bunyan-1.0.0.tgz#b2106b26547b232f0195db863cb5d5ff8527fd36"
@@ -2690,6 +2683,13 @@ katex@^0.10.0:
   dependencies:
     commander "^2.19.0"
 
+katex@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.npm.taobao.org/katex/download/katex-0.6.0.tgz#12418e09121c05c92041b6b3b9fb6bab213cb6f3"
+  integrity sha1-EkGOCRIcBckgQbazuftrqyE8tvM=
+  dependencies:
+    match-at "^0.1.0"
+
 keyword-extractor@latest:
   version "0.0.19"
   resolved "https://registry.npm.taobao.org/keyword-extractor/download/keyword-extractor-0.0.19.tgz#bbc7754943986cd8e37601671ea289749e8322d6"
@@ -2898,6 +2898,13 @@ markdown-it-ins@^2.0.0:
   resolved "https://registry.npm.taobao.org/markdown-it-ins/download/markdown-it-ins-2.0.0.tgz#a5aa6a30f1e2f71e9497567cfdff40f1fde67483"
   integrity sha1-papqMPHi9x6Ul1Z8/f9A8f3mdIM=
 
+markdown-it-katex@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.npm.taobao.org/markdown-it-katex/download/markdown-it-katex-2.0.3.tgz#d7b86a1aea0b9d6496fab4e7919a18fdef589c39"
+  integrity sha1-17hqGuoLnWSW+rTnkZoY/e9YnDk=
+  dependencies:
+    katex "^0.6.0"
+
 markdown-it-mark@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/markdown-it-mark/download/markdown-it-mark-2.0.0.tgz#46a1aa947105aed8188978e0a016179e404f42c7"
@@ -2935,6 +2942,11 @@ markdown@~0.5.0:
   integrity sha1-KCBbVlqK51kt4gdGPWY33BgnIrI=
   dependencies:
     nopt "~2.1.1"
+
+match-at@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.npm.taobao.org/match-at/download/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
+  integrity sha1-JdBA0pF3dwTV5lVru3kjDsLeBUA=
 
 mdurl@^1.0.1:
   version "1.0.1"
@@ -4573,11 +4585,6 @@ write@1.0.3:
   integrity sha1-CADhRSO5I6OH5BUSPIZWFqrg9cM=
   dependencies:
     mkdirp "^0.5.1"
-
-xmlhttprequest@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.npm.taobao.org/xmlhttprequest/download/xmlhttprequest-1.8.0.tgz#67fe075c5c24fef39f9d65f5f7b7fe75171968fc"
-  integrity sha1-Z/4HXFwk/vOfnWX197f+dRcZaPw=
 
 yallist@^2.1.2:
   version "2.1.2"

@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "hexo": "^5.0.0",
-    "hexo-baidu-url-submit": "^0.0.6",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-baidu-sitemap": "^0.1.9",
     "hexo-generator-category": "^1.0.0",
@@ -28,7 +27,8 @@
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
     "hexo-translate-title": "^1.0.11",
-    "hexo-wordcount": "^6.0.1"
+    "hexo-wordcount": "^6.0.1",
+    "markdown-it-katex": "^2.0.3"
   },
   "devDependencies": {
     "eslint-config-vue-prettier-airbnb-ro": "^0.0.3",
