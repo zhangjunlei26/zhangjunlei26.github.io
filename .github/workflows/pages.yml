@@ -28,6 +28,6 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: bbbdef469b00e4dc1b01ce0495e5837b67a955d0
+          github_token:
           publish_dir: ./public
           publish_branch: blog # deploying branch
